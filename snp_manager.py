@@ -1,6 +1,14 @@
-
-
-import sys 
+from tkinter import filedialog
+import numpy as np 
+import pyperclip 
+import matplotlib.pyplot as plt 
+import numpy as np 
+import mplcursors 
+from itertools import cycle 
+import os 
+import numpy as np 
+import pandas 
+import webbrowser
 snp_names = ["snp","rsid","rsids","snps","variant","variants","variant id","variants id"] 
 
 class snp(): 
@@ -9,10 +17,9 @@ class snp():
     
     def websearch(self): 
         
-        import webbrowser
 
         # URL to open
-        url = f"https://www.genecards.org/Search/Keyword?queryString={self.rsid}" # rs200480 
+        url = f"{self.rsid}" 
 
         # Open URL in default browser
         webbrowser.open(url)
@@ -30,7 +37,6 @@ class snp():
 
 class file(): 
     def __init__(self,group,path,sheet=""): 
-        import pandas 
 
         if "csv" in path: 
             self.file =pandas.read_csv(path) 
@@ -107,7 +113,6 @@ class filegroup():
 
     def plot(self,xattr,yattr,xlabel,ylabel,logarithmic=bool,title=str,show=bool,save=""): # save=".format" 
         snps = self.snps 
-        import numpy as np 
         if xattr.lower() in snp_names: 
             xattr = "rsid" 
             xlabel = "rsid" 
@@ -139,13 +144,6 @@ def getsnpbyrsid(rsid,group):
 
 # Function to input values and create scatter plot
 def create_scatter_plot(snps_list,title,xattr,yattr,xlabel,ylabel,show,save,logarithmic): 
-    import copy 
-    import matplotlib.pyplot as plt 
-    import numpy as np 
-    import mplcursors 
-    plt = plt 
-    from itertools import cycle 
-    import os 
     colors = [
         ("Green", (0, 255, 0)),
         ("Cyan", (0, 255, 255)),
@@ -229,8 +227,6 @@ def create_scatter_plot(snps_list,title,xattr,yattr,xlabel,ylabel,show,save,loga
     plt.savefig(os.getcwd() + '/' + title+save) if save else None 
 
 def process(snp,xattr,yattr,xlabel,ylabel,logarithmic,websearch): 
-    import numpy as np 
-    import pyperclip 
     pyperclip.copy(snp.rsid) 
     if not(websearch): 
         a = "rsid" 
@@ -255,8 +251,6 @@ def process(snp,xattr,yattr,xlabel,ylabel,logarithmic,websearch):
 
 # Function to open file dialog and display selected file path
 def select_files(): 
-    import tkinter as tk
-    from tkinter import filedialog
 
     paths = filedialog.askopenfilenames(
         title="Select a file",
