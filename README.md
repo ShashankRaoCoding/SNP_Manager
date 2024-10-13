@@ -2,7 +2,7 @@
 
 This is a simple library and related projects built during the August of 2024. These are made to enable faster and easier working with SNP data, with functions to export for use in other softwares such as FUMA. 
 
-Related projects use this library and/or other lirbaries to further enable plotting of SNPs or working with heat maps. Note that some of these programs may require input data to be in specific formats. 
+Related projects use this library and/or other libraries to further enable plotting of SNPs or working with heat maps. Note that some of these programs may require input data to be in specific formats. 
 
 # Liability
 This project, SNP Manager, was developed as an experimental tool and is provided on an "as-is" basis. While every effort has been made to ensure the accuracy and reliability of the functions and tools provided, no guarantees or warranties are given regarding their performance, correctness, or fitness for a particular purpose.
